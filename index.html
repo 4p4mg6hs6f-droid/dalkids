@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>달 소아청소년과 의원</title>
+<link href="https://fonts.googleapis.com/css2?family=Jua&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}[hidden]{display:none!important}#v-old,#v-new{position:relative;min-height:100vh}
+#v-old{--bg:#313131;--coral:#ffa18f;--coral-d:#f77760;--text:#3a2f2d;--soft:#fbf3f0;--line:#f0dcd6;--mute:#7a6a66;--r:20px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+#v-old *,#v-old *::before,#v-old *::after{box-sizing:inherit}
+#v-old{margin:0;min-height:100%;background:var(--bg);color:var(--text);font:16px/1.7 "Noto Sans KR",system-ui,sans-serif}
+#v-old .stars{position:absolute;inset:0 0 auto;height:200px;overflow:hidden;pointer-events:none}
+#v-old .stars svg{position:absolute;fill:#4a4a4a}
+#v-old .stars>img{position:absolute;top:20px}
+#v-old .stars>div{position:absolute;inset:0}
+@media(max-width:700px){#v-old .stars>img{display:none}}
+#v-old header{position:relative;text-align:center;padding:26px 16px 16px}
+#v-old .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+#v-old .logo b{font:400 clamp(32px,7vw,54px)/1 Jua,"Noto Sans KR",sans-serif;color:#e48b86}
+#v-old .logo small{display:block;font:400 17px/1 Jua,"Noto Sans KR",sans-serif;color:#e48b86;text-align:right;margin-top:4px}
+#v-old .wrap{position:relative;max-width:1000px;margin:0 auto;background:#fff;border-radius:var(--r);overflow:hidden}
+#v-old nav{background:var(--coral);border-bottom:10px solid var(--coral-d);border-radius:var(--r) var(--r) 28px 28px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:center;gap:clamp(4px,3vw,40px);padding:12px 6px 8px}
+#v-old nav a{display:flex;flex-direction:column;align-items:center;gap:4px;color:#3a2420;text-decoration:none;font-size:14px;font-weight:500;padding:2px 4px;border-radius:12px}
+#v-old nav a i{width:75px;height:80px;border:2px solid #4a2f2a;border-radius:16px;background:var(--coral);box-shadow:7px 7px 0 var(--coral-d);display:grid;place-items:center;overflow:hidden}
+#v-old nav a i:has(img.bt:not([hidden])){border:0;background:none}
+#v-old nav a i img.bt{width:100%;height:100%;display:block}
+#v-old nav a svg{width:27px;height:27px;stroke:#2d1f1c;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#v-old nav a.on{font-weight:700}
+#v-old nav a.on i,#v-old nav a:hover i{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--coral-d);background:#f7c9bd}
+#v-old a:focus-visible,#v-old summary:focus-visible{outline:3px solid #2d1f1c;outline-offset:2px}
+#v-old main{padding:clamp(20px,5vw,44px);min-height:60vh}
+#v-old .pg{display:none}
+#v-old .pg.on{display:block}
+#v-old h1{font:400 clamp(26px,5vw,36px)/1.3 Jua,"Noto Sans KR",sans-serif;margin:6px 0 22px}
+#v-old h2{font:400 22px/1.3 Jua,"Noto Sans KR",sans-serif;margin:36px 0 12px}
+#v-old h1+h2,#v-old .top+h2{margin-top:0}
+#v-old .top{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+#v-old .status{background:var(--soft);border-radius:var(--r);padding:20px 24px}
+#v-old .status p{margin:0}
+#v-old .badge{display:inline-block;font-weight:700;padding:2px 14px;border-radius:99px;background:#cfe9d6;color:#1f5b33;margin-bottom:6px}
+#v-old .badge.off{background:#ead9d5;color:#6b4a43}
+#v-old .big{font:400 21px/1.4 Jua,"Noto Sans KR",sans-serif}
+#v-old .call{display:flex;flex-direction:column;justify-content:center;background:var(--coral);color:#2d1f1c;border-radius:var(--r);border-bottom:8px solid var(--coral-d);padding:18px 24px;text-decoration:none}
+#v-old .call span{font-size:14px;font-weight:500}
+#v-old .call strong{font:400 clamp(25px,4.5vw,32px)/1.2 Jua,"Noto Sans KR",sans-serif}
+#v-old .notice{margin-top:12px;border:2px dashed var(--coral);border-radius:var(--r);padding:12px 20px}
+#v-old .notice b{color:#b8503d}
+#v-old .notice small{color:var(--mute);margin-left:6px}
+#v-old .notice.old{opacity:.55}
+#v-old .tbl{border-radius:var(--r);overflow:hidden;border:2px solid var(--line);overflow-x:auto}
+#v-old .row{display:grid;grid-template-columns:120px 1fr;gap:4px 12px;padding:11px 20px;border-top:1px solid var(--line)}
+#v-old .row:first-child{border-top:0}
+#v-old .row:nth-child(odd){background:var(--soft)}
+#v-old .row em{font-style:normal;color:var(--mute);font-size:14px}
+#v-old .row.today{background:var(--coral);font-weight:700}
+#v-old .row.today em{color:#2d1f1c}
+#v-old .row.h{background:#f6e6e1;font-weight:700;font-size:14px}
+#v-old .row.c3{grid-template-columns:90px 1fr 120px}
+#v-old .row.c3 span:last-child{text-align:right}
+#v-old .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+#v-old .card{border:2px solid var(--line);border-radius:var(--r);padding:14px 18px}
+#v-old .card.warn{background:var(--soft);border-color:var(--coral)}
+#v-old .card h3{margin:0 0 4px;font-size:16px}
+#v-old .card p{margin:0;font-size:15px}
+#v-old .card .red{color:#c0392b;font-weight:700}
+#v-old .dr{display:grid;grid-template-columns:200px 1fr;gap:26px}
+#v-old [hidden]{display:none!important}
+#v-old .logo img.lg{display:block;max-width:min(640px,86vw);height:auto}
+#v-old .fbl{display:inline-flex;align-items:center;gap:10px}
+#v-old .map{display:block;max-width:100%;height:auto;border-radius:var(--r)}
+#v-old .pic{width:200px;height:240px;border-radius:var(--r);overflow:hidden}
+#v-old .pic img{width:100%;height:100%;object-fit:cover;display:block}
+#v-old .pic [data-fbx]{width:100%;height:100%;background:var(--soft);border:2px dashed var(--coral);border-radius:var(--r);display:grid;place-items:center;text-align:center;color:var(--mute);font-size:13px}
+#v-old .pic b{display:block;font:400 56px/1 Jua,sans-serif;color:var(--coral-d)}
+#v-old .dr h3{margin:10px 0 0;font:400 22px Jua,sans-serif}
+#v-old .dr h3 small{font:400 14px "Noto Sans KR",sans-serif;color:var(--mute);display:block}
+#v-old .cv{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+#v-old .cv div{background:var(--soft);border-radius:var(--r);padding:14px 18px}
+#v-old .cv h3{margin:0 0 6px;font-size:16px}
+#v-old .cv ul,#v-old .cv p{margin:0;padding-left:18px;font-size:15px;line-height:1.7}
+#v-old .cv p{padding:0}
+#v-old details{border:2px solid var(--line);border-radius:var(--r);padding:12px 20px;margin-top:10px}
+#v-old summary{cursor:pointer;font-weight:700}
+#v-old details ul{margin:8px 0 0;padding-left:20px;font-size:15px}
+#v-old .doc{margin-top:10px;font-size:15px}
+#v-old .doc h4{margin:18px 0 4px;font-size:15px}
+#v-old .doc p{margin:0 0 6px}
+#v-old .doc table{border-collapse:collapse;width:100%;margin:6px 0 10px}
+#v-old .doc th,#v-old .doc td{border:1px solid var(--line);padding:6px 10px;text-align:left;font-size:14px}
+#v-old .doc th{background:var(--soft)}
+#v-old .ph{border:2px dashed var(--line);border-radius:var(--r);padding:26px;text-align:center;color:var(--mute)}
+#v-old .ph a{color:#b8503d;font-weight:700}
+#v-old .addr{background:var(--soft);border-radius:var(--r);padding:16px 22px;margin-top:12px}
+#v-old .addr p{margin:0}
+#v-old footer{position:relative;margin-top:40px;background:#685d5a;color:#d9cfcc;padding:26px 16px}
+#v-old footer div{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;gap:12px;font-size:14px}
+#v-old footer a{color:#f4c9bf}
+@media(min-width:701px){#v-old #p-info .t1 .row.c3{grid-template-columns:130px 1fr 150px}
+#v-old #p-info .t2 .row.c3{grid-template-columns:300px 1fr 150px}}
+@media(min-width:701px){#v-old #p-map .row.c3{grid-template-columns:270px 160px 230px;column-gap:20px;justify-content:start}
+#v-old #p-map .row.c3 span:last-child{text-align:left}}
+@media(max-width:700px){#v-old .top,#v-old .dr{grid-template-columns:1fr}
+#v-old .pic{width:193px;height:235px}
+#v-old .row,#v-old .row.c3{grid-template-columns:1fr;padding:10px 14px}
+#v-old .row.c3 span:last-child{text-align:left}
+#v-old .wrap{border-radius:0}
+#v-old nav a i{width:60px;height:64px}
+#v-old nav a{font-size:12.5px}}
+#v-old .vs{display:flex;align-items:center;gap:6px}
+#v-old .vs button{font:700 13px "Noto Sans KR",sans-serif;padding:6px 14px;border-radius:99px;border:2px solid #f4c9bf;background:transparent;color:#f4c9bf;cursor:pointer;min-height:36px}
+#v-old .vs button[aria-pressed="true"]{background:#f4c9bf;color:#3a2420}
+#v-old footer>div{flex-wrap:wrap}
+#v-new{--bg:#F6F7FB;--cd:#fff;--tx:#0F1536;--mut:#5A6082;--ln:#E3E6F2;--acc:#4338CA;--moon:#FFD66B;--soft:#EEF0FF;--ok:#0B6B42;--okb:#DDF5E8;--wr:#8A5A00;--wrb:#FFF1CC;--bad:#B42318;--badb:#FDE4E1;--btn:#0F1536;--btt:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){#v-new:not([data-theme="light"]){--bg:#0A0D24;--cd:#131939;--tx:#EEF0FF;--mut:#A9AFD6;--ln:#262E5E;--acc:#A5B4FC;--soft:#1B2250;--ok:#7BE0A9;--okb:#12392B;--wr:#FFD66B;--wrb:#3A2E0B;--bad:#FF9C92;--badb:#43191A;--btn:#EEF0FF;--btt:#0F1536}}
+#v-new[data-theme="dark"]{--bg:#0A0D24;--cd:#131939;--tx:#EEF0FF;--mut:#A9AFD6;--ln:#262E5E;--acc:#A5B4FC;--soft:#1B2250;--ok:#7BE0A9;--okb:#12392B;--wr:#FFD66B;--wrb:#3A2E0B;--bad:#FF9C92;--badb:#43191A;--btn:#EEF0FF;--btt:#0F1536}
+#v-new *{box-sizing:border-box}
+#v-new [hidden]{display:none!important}
+#v-new{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 'Noto Sans KR',system-ui,sans-serif}
+#v-new::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--cd);z-index:10}
+#v-new a{color:inherit;text-decoration:none}
+#v-new .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--cd);border-bottom:1px solid var(--ln)}
+#v-new .bi{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:20px}
+#v-new .lg{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;white-space:nowrap}
+#v-new .mn{display:flex;gap:4px;margin-left:auto;overflow-x:auto}
+#v-new .mn a{padding:8px 14px;border-radius:999px;font-weight:500;font-size:15px;white-space:nowrap;color:var(--mut)}
+#v-new .mn a:hover{background:var(--soft)}
+#v-new .mn a[aria-current]{background:var(--soft);color:var(--tx);font-weight:700}
+#v-new .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 22px;border-radius:999px;background:var(--btn);color:var(--btt);font-weight:700;font-size:15px;white-space:nowrap}
+#v-new .btn.o{background:transparent;color:var(--tx);border:1.5px solid var(--ln)}
+#v-new .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+#v-new .hero{padding:72px 0 40px;max-width:760px}
+#v-new .eb{margin:0 0 12px;font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--acc)}
+#v-new .hero h1{margin:0 0 16px;font-size:clamp(34px,6vw,56px);line-height:1.15;font-weight:900;letter-spacing:-.02em}
+#v-new .hero p{margin:0 0 28px;font-size:18px;color:var(--mut)}
+#v-new .hero .btn+.btn{margin-left:10px}
+#v-new .grid{display:grid;grid-template-columns:1fr;gap:20px;padding-bottom:24px}
+@media(min-width:720px){#v-new .grid{grid-template-columns:repeat(2,1fr)}
+#v-new .ph2{grid-row:span 2}
+#v-new .w2{grid-column:span 2}}
+@media(min-width:1000px){#v-new .grid{grid-template-columns:repeat(3,1fr)}
+#v-new .w2{grid-column:span 2}
+#v-new .w2.i{grid-column:span 1}}
+#v-new .bx{position:relative;display:flex;flex-direction:column;overflow:hidden;background:var(--cd);border:1px solid var(--ln);border-radius:28px;padding:28px;min-height:300px;transition:box-shadow .3s,transform .3s}
+#v-new .bx:hover{box-shadow:0 18px 40px rgba(15,21,54,.10)}
+#v-new .bx:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+#v-new .bx h3{margin:6px 0 8px;font-size:22px;line-height:1.3;font-weight:900;letter-spacing:-.01em}
+#v-new .bx .d{margin:0;font-size:15px;color:var(--mut)}
+#v-new .bx .eb{font-size:12px;margin:0}
+#v-new .bd{flex:1;margin-top:20px;position:relative}
+#v-new .mv{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;gap:22px;background:var(--btn);color:var(--btt);border-color:var(--btn)}
+#v-new .mv .eb{color:var(--moon)}
+#v-new .mv h3{margin:4px 0 6px;color:inherit}
+#v-new .mv .d{color:inherit;opacity:.8}
+#v-new .mv .mo{flex:none;width:64px;height:64px;border-radius:50%;background:var(--moon);box-shadow:inset -14px -6px 0 rgba(0,0,0,.12)}
+#v-new .mv .mt{flex:1;min-width:0}
+#v-new .mv .go{flex:none;display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;background:var(--btt);color:var(--btn);font-weight:700;font-size:15px;white-space:nowrap}
+@media(max-width:719px){#v-new .mv{flex-direction:column;align-items:flex-start}}
+#v-new .big{font-size:40px;line-height:1.1;font-weight:900;letter-spacing:-.02em}
+#v-new .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;background:var(--mut)}
+#v-new .ok .dot{background:#12B76A;animation:pl 1.8s infinite}
+#v-new .wr .dot{background:#F79009}
+#v-new .ok .big{color:var(--ok)}
+#v-new .wr .big{color:var(--wr)}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(18,183,106,.5)}100%{box-shadow:0 0 0 10px rgba(18,183,106,0)}}
+#v-new .wk{display:flex;gap:6px;margin-top:20px}
+#v-new .wk span{flex:1;text-align:center;font-size:13px;font-weight:700;padding:6px 0;border-radius:12px;background:var(--soft);color:var(--mut)}
+#v-new .wk .off{text-decoration:line-through;opacity:.7}
+#v-new .wk .td{background:var(--btn);color:var(--btt);opacity:1}
+#v-new .ph{width:216px;margin:0 auto;border:7px solid #0F1536;border-radius:38px;background:var(--soft);padding:16px 14px;height:380px;position:relative;color:var(--tx);box-shadow:0 20px 40px rgba(15,21,54,.18);transition:transform .5s}
+#v-new .bx:hover .ph{transform:translateY(-6px) rotate(-1.5deg)}
+#v-new .ph .nt{width:52px;height:5px;border-radius:9px;background:var(--ln);margin:0 auto 18px}
+#v-new .lay{position:absolute;inset:44px 14px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:opacity .45s,transform .45s,visibility .45s}
+#v-new .lay small{font-size:12px;color:var(--mut);font-weight:700}
+#v-new .lay b{font-size:21px;line-height:1.3;margin:10px 0 28px;font-weight:900}
+#v-new .cb{width:64px;height:64px;border-radius:50%;background:#12B76A;display:grid;place-items:center;margin-top:auto;margin-bottom:10px}
+#v-new .lb{opacity:0;transform:translateY(10px);visibility:hidden}
+#v-new .bx.sw .la{opacity:0;transform:translateY(-10px);visibility:hidden}
+#v-new .bx.sw .lb{opacity:1;transform:none;visibility:visible}
+#v-new .sg{display:flex;justify-content:center;gap:6px;margin-top:16px}
+#v-new .sg button{font:700 13px 'Noto Sans KR',sans-serif;padding:7px 14px;border-radius:999px;border:1.5px solid var(--ln);background:transparent;color:var(--mut);cursor:pointer;min-height:36px}
+#v-new .sg button[aria-pressed="true"]{background:var(--btn);color:var(--btt);border-color:var(--btn)}
+#v-new .stp{display:flex;flex-direction:column;gap:10px}
+#v-new .stp div{display:flex;align-items:center;gap:12px;background:var(--soft);border-radius:16px;padding:12px 16px;font-size:15px;font-weight:500}
+#v-new .stp i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--btn);color:var(--btt);display:grid;place-items:center;font-size:13px;font-weight:700;flex:none}
+#v-new .hr{display:flex;justify-content:space-between;gap:12px;padding:9px 12px;border-radius:12px;font-size:14px}
+#v-new .hr span:first-child{font-weight:700}
+#v-new .hr.now{background:var(--moon);color:#0F1536}
+#v-new .hr.now span{color:#0F1536}
+#v-new .cl{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--ln);font-size:15px}
+#v-new .cl:last-child{border:0}
+#v-new .tg{font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;background:var(--badb);color:var(--bad);white-space:nowrap}
+#v-new .tg.n{background:var(--wrb);color:var(--wr)}
+#v-new .gl{font-size:12px;font-weight:700;color:var(--mut);margin:8px 0 0}
+#v-new .gr{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;align-items:center}
+#v-new .gp{margin:0 0 10px;font-size:15px}
+#v-new .gp b{display:block}
+#v-new .gc{width:100%;height:auto;max-height:220px}
+#v-new .gc path{fill:none;stroke-linecap:round}
+#v-new .g0{stroke:var(--ln);stroke-width:2}
+#v-new .g1{stroke:var(--acc);stroke-width:4;stroke-dasharray:360;animation:dr 4.5s ease-in-out infinite alternate}
+@keyframes dr{from{stroke-dashoffset:360}to{stroke-dashoffset:0}}
+#v-new .gc text{fill:var(--mut);font-size:11px}
+#v-new .plx{transform:translate3d(calc(var(--px,0)*var(--dx,0px)),calc(var(--py,0)*var(--dy,0px)),0);transition:transform .25s ease-out}
+#v-new .win{border:1px solid var(--ln);background:var(--soft);border-radius:18px;overflow:hidden}
+#v-new .win .cl{padding:10px 16px}
+#v-new .chip{position:absolute;right:0;top:-10px;background:var(--cd);border:1px solid var(--ln);border-radius:16px;padding:8px 14px;box-shadow:0 12px 28px rgba(15,21,54,.15);font-size:13px;font-weight:700}
+#v-new .lk{margin-top:16px;font-weight:700;color:var(--acc);font-size:15px}
+#v-new .pg{max-width:1000px;margin:0 auto;padding:56px 24px 0}
+#v-new .pg h1{margin:0 0 28px;font-size:clamp(30px,5vw,44px);font-weight:900;letter-spacing:-.02em}
+#v-new .pg h2{margin:44px 0 14px;font-size:22px;font-weight:900}
+#v-new .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+#v-new .card{background:var(--cd);border:1px solid var(--ln);border-radius:22px;padding:20px 22px}
+#v-new .card.w{background:var(--wrb);border-color:var(--moon)}
+#v-new .card h3{margin:0 0 6px;font-size:17px}
+#v-new .card p{margin:0 0 4px;font-size:15px}
+#v-new .t{background:var(--cd);border:1px solid var(--ln);border-radius:22px;overflow:hidden}
+#v-new .r{display:grid;grid-template-columns:140px 1fr;gap:4px 14px;padding:13px 20px;border-top:1px solid var(--ln)}
+#v-new .r:first-child{border-top:0}
+#v-new .r em{font-style:normal;font-weight:700}
+#v-new .r.h{background:var(--soft);color:var(--mut);font-weight:700;font-size:14px}
+#v-new .r3{grid-template-columns:130px 1fr 160px}
+#v-new .r3 span:last-child{text-align:right}
+#v-new .call{display:flex;flex-direction:column;justify-content:center;background:var(--btn);color:var(--btt);border-radius:22px;padding:20px 26px}
+#v-new .call span{font-size:14px}
+#v-new .call strong{font-size:32px;line-height:1.2;font-weight:900}
+#v-new .dr{display:grid;grid-template-columns:200px 1fr;gap:28px}
+@media(max-width:700px){#v-new .dr{grid-template-columns:1fr}}
+#v-new .pic{width:200px;height:240px;background:var(--soft);border-radius:24px;display:grid;place-items:center;color:var(--mut);font-size:14px}
+#v-new .dr h3.n{margin:14px 0 0;font-size:24px;font-weight:900}
+#v-new .dr small{display:block;font-size:14px;color:var(--mut)}
+#v-new .cv{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;align-content:start}
+#v-new .cv div{background:var(--cd);border:1px solid var(--ln);border-radius:22px;padding:18px 22px}
+#v-new .cv h3{margin:0 0 8px;font-size:17px}
+#v-new .cv ul{margin:0;padding-left:18px;font-size:15px}
+#v-new .mp{height:320px;background:var(--soft);border-radius:22px;display:grid;place-items:center;color:var(--mut)}
+#v-new .ad{background:var(--wrb);border-radius:18px;padding:14px 22px;margin-top:12px}
+#v-new .ad p{margin:0}
+#v-new footer{margin-top:72px;border-top:1px solid var(--ln);background:var(--cd)}
+#v-new footer>div{max-width:1120px;margin:0 auto;padding:30px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:14px;color:var(--mut)}
+@media(max-width:560px){#v-new .r,#v-new .r3{grid-template-columns:1fr}
+#v-new .r3 span:last-child{text-align:left}
+#v-new .bi{flex-wrap:wrap}
+#v-new .mn{order:3;width:100%;margin-left:0}
+#v-new .btn.cta{margin-left:auto}}
+#v-new[data-skin="coral"]{--bg:#FFF6F2;--cd:#fff;--tx:#3A1F1A;--mut:#7A5A52;--ln:#F0DAD3;--acc:#B8412B;--moon:#FFB4A2;--soft:#FFEAE3;--wrb:#FFE9D6;--wr:#8A4A00;--btn:#3A1F1A;--btt:#fff}
+#v-new[data-skin="mint"]{--bg:#F1F8F5;--cd:#fff;--tx:#0E2B24;--mut:#4F6F66;--ln:#D5E8E1;--acc:#0F766E;--moon:#FCD34D;--soft:#E1F3EC;--wrb:#FFF3C4;--wr:#7A5200;--btn:#0E2B24;--btt:#fff}
+#v-new .sk{display:flex;align-items:center;gap:6px}
+#v-new .sk button{font:700 13px 'Noto Sans KR',sans-serif;padding:6px 14px;border-radius:999px;border:1.5px solid var(--ln);background:transparent;color:var(--mut);cursor:pointer;min-height:36px}
+#v-new .sk button[aria-pressed="true"]{background:var(--btn);color:var(--btt);border-color:var(--btn)}
+@media(prefers-reduced-motion:reduce){#v-new *{animation:none!important;transition:none!important}
+#v-new .plx{transform:none}}
+#v-new{--mute:var(--mut)}
+#v-new .tbl{background:var(--cd);border:1px solid var(--ln);border-radius:22px;overflow:hidden;overflow-x:auto}
+#v-new .row{display:grid;grid-template-columns:140px 1fr;gap:4px 14px;padding:13px 20px;border-top:1px solid var(--ln)}
+#v-new .row:first-child{border-top:0}
+#v-new .row em{font-style:normal;font-weight:700}
+#v-new .row.h{background:var(--soft);color:var(--mut);font-weight:700;font-size:14px}
+#v-new .row.c3{grid-template-columns:130px 1fr 160px}
+#v-new .row.c3 span:last-child{text-align:right}
+#v-new .row.today{background:var(--moon);color:#0F1536;font-weight:700}
+#v-new .row.today em{color:#0F1536}
+@media(min-width:701px){#v-new .t2 .row.c3{grid-template-columns:260px 1fr 160px}
+#v-new [data-page="map"] .row.c3{grid-template-columns:270px 160px 230px;column-gap:20px;justify-content:start}
+#v-new [data-page="map"] .row.c3 span:last-child{text-align:left}}
+#v-new .card.warn{background:var(--wrb);border-color:var(--moon)}
+#v-new .card .red{color:var(--bad);font-weight:700}
+#v-new .dr>div>h3{margin:14px 0 0;font-size:24px;font-weight:900}
+#v-new .dr>div>h3 small{display:block;font-size:14px;color:var(--mut);font-weight:400}
+#v-new .pic{overflow:hidden}
+#v-new .pic img{width:100%;height:100%;object-fit:cover;display:block}
+#v-new .pic [data-fbx]{width:100%;height:100%;display:grid;place-items:center;text-align:center;font-size:13px}
+#v-new .pic b{display:block;font-size:56px;line-height:1;font-weight:900;color:var(--acc)}
+#v-new details{background:var(--cd);border:1px solid var(--ln);border-radius:22px;padding:12px 20px;margin-top:10px}
+#v-new summary{cursor:pointer;font-weight:700}
+#v-new .doc{margin-top:10px;font-size:15px}
+#v-new .doc h4{margin:18px 0 4px;font-size:15px}
+#v-new .doc p{margin:0 0 6px}
+#v-new .doc table{border-collapse:collapse;width:100%;margin:6px 0 10px}
+#v-new .doc th,#v-new .doc td{border:1px solid var(--ln);padding:6px 10px;text-align:left;font-size:14px}
+#v-new .doc th{background:var(--soft)}
+#v-new .ph{border:2px dashed var(--ln);border-radius:22px;padding:26px;text-align:center;color:var(--mut)}
+#v-new .map{display:block;max-width:100%;height:auto;border-radius:22px}
+#v-new .addr{background:var(--wrb);border-radius:18px;padding:16px 22px;margin-top:12px}
+#v-new .addr p{margin:0}
+#v-new .addr a{color:var(--acc);font-weight:700}
+#v-new .stp .nw{background:var(--moon);color:#0F1536}
+#v-new .vs{display:flex;align-items:center;gap:6px}
+#v-new .vs button{font:700 13px 'Noto Sans KR',sans-serif;padding:6px 14px;border-radius:999px;border:1.5px solid var(--ln);background:transparent;color:var(--mut);cursor:pointer;min-height:36px}
+#v-new .vs button[aria-pressed="true"]{background:var(--btn);color:var(--btt);border-color:var(--btn)}
+@media(max-width:700px){#v-new .row,#v-new .row.c3{grid-template-columns:1fr}
+#v-new .row.c3 span:last-child{text-align:left}}
+#v-new .lgi{display:block;height:40px;width:auto;max-width:62vw}#v-new .fbl2{display:flex;align-items:center;gap:10px}
+#v-old,#v-new{min-height:100vh}
+</style>
+</head>
+<body>
+<div id="v-new" hidden>
+<header class="bar"><div class="bi">
+<a href="#home" class="lg" aria-label="달 소아청소년과 의원 메인"><img class="lgi" src="img/Box_sign.png" alt="moon pediatrics 달 소아과 의원" data-fb><span class="fbl2" data-fbx hidden><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><mask id="mk"><rect width="32" height="32" fill="#fff"/><circle cx="24.5" cy="9" r="6" fill="#000"/></mask><circle cx="16" cy="16" r="14" fill="#F5B83D" mask="url(#mk)"/></svg>달 소아청소년과</span></a>
+<nav class="mn" aria-label="주 메뉴"><a href="#doctors">의료진 안내</a><a href="#info">진료 안내</a><a href="#growth">성장 클리닉</a><a href="#map">오시는 길</a></nav>
+<a class="btn cta" href="tel:0542537576">전화 예약</a></div></header>
+
+<div data-page="home">
+<div class="wrap">
+<section class="hero"><p class="eb">MOON PEDIATRICS</p><h1>달 소아청소년과 의원</h1><p>예약제로 운영합니다. 진료 상태와 시간, 휴진 일정을 한눈에 확인하세요.</p><a class="btn" href="tel:0542537576">054-253-7576 전화 예약</a><a class="btn o" href="#map">오시는 길</a></section>
+<div class="grid">
+<article class="bx" tabindex="0" id="stc"><p class="eb">오늘 진료</p><h3>지금 진료 중일까요?</h3><div class="bd"><div id="stv"><div class="big"><span class="dot"></span>확인 중</div></div><p class="d" id="std"></p><div class="wk" id="wk"></div></div></article>
+
+<article class="bx ph2" tabindex="0" id="phc"><p class="eb">전화 예약</p><h3>전화 한 통으로 예약</h3><p class="d">일반 054-253-7576 · 성장 클리닉 070-4291-7572</p>
+<div class="bd"><div class="ph" role="img" aria-label="전화 예약 화면 목업. 아래 버튼으로 일반 번호와 성장 클리닉 번호를 바꿔 볼 수 있습니다."><div class="nt"></div>
+<a class="lay la" href="tel:0542537576"><small>일반 진료 예약</small><b>054-253-7576</b><span class="cb"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11 11 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.2.2 2.4.56 3.5a1 1 0 01-.25 1z"/></svg></span></a>
+<a class="lay lb" href="tel:07042917572"><small>성장 · 성조숙증 클리닉</small><b>070-4291-7572</b><span class="cb"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11 11 0 003.5.56 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.2.2 2.4.56 3.5a1 1 0 01-.25 1z"/></svg></span></a></div>
+<div class="sg"><button type="button" aria-pressed="true" data-sw="0">일반</button><button type="button" aria-pressed="false" data-sw="1">성장 클리닉</button></div></div></article>
+
+<article class="bx" tabindex="0"><p class="eb">예약</p><h3>예약제로 운영해요</h3><p class="d">대기 시간 단축을 위해 예약제로 운영합니다. 예약·당일접수 마감 후에는 당일 진료가 어렵습니다.</p><div class="bd stp"><div><i>1</i>전화로 예약 접수</div><div><i>2</i>예약한 날 내원</div><div><i>3</i>대기 없이 진료</div><div class="nw" data-end="2026-11-02"><i>!</i>클리닉 신환 접수 · 11월 2일(월) 9시부터 전화</div></div></article>
+
+<article class="bx" tabindex="0"><p class="eb">진료 시간표</p><h3>진료 시간</h3><div class="bd" id="hrs">
+<div class="hr" data-d="1,2,5"><span>월 · 화 · 금</span><span>9:00 ~ 18:00</span></div><div class="hr" data-d="3"><span>수</span><span>14:00 ~ 18:00</span></div><div class="hr" data-d="4"><span>목</span><span>휴진</span></div><div class="hr" data-d="6"><span>토</span><span>8:00 ~ 12:00</span></div><div class="hr" data-d="0"><span>일 · 공휴일</span><span>휴진</span></div></div><p class="d">점심시간 오후 1:00 ~ 2:00</p></article>
+
+<article class="bx" tabindex="0"><p class="eb">다가오는 휴진</p><h3>휴진 일정</h3><div class="bd"><p class="gl">정기 휴진 (목 · 일)</p><div id="cr"></div><p class="gl">공지된 휴진</p><div id="cn"></div></div></article>
+
+<article class="bx w2" tabindex="0"><p class="eb">성장 클리닉</p><h3>저신장 · 성조숙증 클리닉</h3><div class="bd gr"><div>
+<p class="gp"><b>신환은 예약제로만</b>당일 접수는 불가능합니다.</p><p class="gp"><b>첫 진료 시 성장판</b>비급여이며, 성장호르몬 결핍·성조숙증이 의심되어 당일 추가 검사를 하면 급여로 전환됩니다.</p><p class="gp"><b>준비해 오세요</b>최근 3년간 측정한 키와 몸무게.</p><a class="lk" href="#growth">성장 클리닉 자세히 →</a></div>
+<svg class="gc" viewBox="0 0 300 190" role="img" aria-label="성장 곡선 그래프"><path class="g0" d="M20 160C80 140 150 100 280 60"/><path class="g0" d="M20 170C80 156 150 126 280 96"/><path class="g0" d="M20 150C80 124 150 82 280 30"/><path class="g1" d="M20 164C70 142 120 112 170 92S240 60 280 48"/><text x="20" y="184">나이</text><text x="262" y="20">키</text></svg></div></article>
+
+<article class="bx w2 i" tabindex="0" data-plx><p class="eb">진료 안내</p><h3>이용 방법과 비급여</h3><div class="bd" style="padding-top:18px"><div class="plx win" style="--dx:-6px;--dy:-4px"><div class="cl"><span>독감검사</span><span>35,000원</span></div><div class="cl"><span>Tdap 아다셀주</span><span>50,000원</span></div><div class="cl"><span>비타민디 검사</span><span>20,000원</span></div></div><div class="plx chip" style="--dx:16px;--dy:10px">예약제 운영</div></div><a class="lk" href="#info">진료 안내 보기 →</a></article>
+<a class="bx mv" href="https://meta-dal.onrender.com" target="_blank" rel="noopener"><span class="mo" aria-hidden="true"></span><div class="mt"><p class="eb">METAVERSE</p><h3>메타버스 달소아과 방문하기</h3><p class="d">접수부터 진료, 주사, 엑스레이까지 아이와 함께 미리 체험해 보세요.</p></div><span class="go">새창으로 열기 ↗</span></a>
+</div></div></div>
+
+<section class="pg" data-page="doctors" hidden>
+<h1>의료진 소개</h1>
+<div class="dr">
+<div><div class="pic"><img src="img/doctor-cho.jpg" width="193" height="235" alt="달소아과 원장 조성희" data-fb><div data-fbx hidden><div><b>조</b>원장 사진</div></div></div><h3>조성희<small>달소아과 원장</small></h3></div>
+<div class="cv" style="align-content:start">
+<div><h3>약력</h3><ul>
+<li>충남대학교 의과대학 졸업</li><li>충남대학교 의과대학 대학원 소아과학 석사</li>
+<li>서울아산병원 인턴·레지던트 수료, 소아청소년과 전문의 취득</li>
+<li>서울아산병원 외래교수 2010.03 ~ 2012.02 위촉</li><li>서울아산병원 외래교수 2012.03 ~ 2014.02 위촉</li><li>서울아산병원 외래교수 2014.03 ~ 2016.02 위촉</li><li>서울아산병원 외래교수 2016.03 ~ 2018.02 위촉</li><li>서울아산병원 외래교수 2018.03 ~ 2020.02 위촉</li><li>서울아산병원 외래교수 2020.03 ~ 2022.02 위촉</li><li>서울아산병원 외래교수 2022.03 ~ 2024.02 위촉</li><li>현 서울아산병원 외래교수 2024.03 ~ 2026.02 위촉</li>
+<li>대전 퍼스트365소아청소년과 병원 원장 역임</li>
+<li>포항선린병원 소아청소년과 과장 역임</li><li>포항선린병원 성장 및 성조숙증 클리닉 운영</li>
+<li>서울대학교 국제모유수유집중강좌 수료</li>
+<li>2013·2014 대구경북 건강한모유수유아선발대회 심사위원</li></ul></div>
+<div><h3>학회활동</h3><ul><li>대한소아청소년과학회 정회원</li><li>대한의사협회 정회원</li><li>대한소아내분비학회 정회원</li><li>대한성장의학회 정회원</li><li>대한소아알레르기학회 정회원</li><li>대한소아신장학회 준회원</li><li>대한소아심장학회 준회원</li></ul></div>
+<div><h3>주요 진료분야</h3><ul><li>저신장 클리닉</li><li>성조숙증 클리닉</li><li>알레르기, 호흡기 질환</li></ul></div>
+<div><h3>주요 논문</h3><ul><li>1세 이하의 소아에서 발병한 신증후군의 진단 및 치료 (대한소아신장학회지 2009)</li><li>신생아 집중치료실 퇴원아의 신생아 청력 선별검사 (대한신생아학회지 2009)</li><li>심실 중격 결손을 동반한 대동맥 축착의 교정술 후 좌심실 유출로 협착의 예측인자 (충남대 석사논문)</li></ul></div>
+</div></div>
+</section>
+<section class="pg" data-page="info" hidden>
+<h1>진료 안내</h1>
+<h2>진료 시간</h2>
+<div class="tbl">
+<div class="row" data-d="1,2,5"><em>월 · 화 · 금</em><span>오전 9:00 ~ 오후 6:00 (점심 오후 1:00 ~ 2:00)</span></div>
+<div class="row" data-d="3"><em>수요일</em><span>오후 2:00 ~ 오후 6:00</span></div>
+<div class="row" data-d="4"><em>목요일</em><span>휴진</span></div>
+<div class="row" data-d="6"><em>토요일</em><span>오전 8:00 ~ 12:00</span></div>
+<div class="row" data-d="0"><em>일요일 · 공휴일</em><span>휴진</span></div>
+</div>
+<h2>휴진 시간</h2>
+<div class="tbl">
+<div class="row"><em>점심</em><span>오후 1:00 ~ 오후 2:00</span></div>
+<div class="row"><em>수요일</em><span>오전 휴진</span></div>
+<div class="row"><em>목요일</em><span>휴진</span></div>
+</div>
+<p style="color:var(--mute);margin:8px 4px 0">공휴일 및 목요일, 일요일은 휴진입니다.</p>
+<h2>이용 방법</h2>
+<div class="cards">
+<div class="card"><h3>예약제로 운영해요</h3><p>대기 시간 단축을 위해 예약제로 운영합니다. 미리 전화 접수 후 방문해 주세요. 예약·당일접수 마감 후에는 당일 진료가 어렵습니다.</p><p style="margin-top:6px"><b>전화 예약 054-253-7576</b></p></div>
+<div class="card warn"><h3>성장·성조숙증 클리닉</h3><p>예약제로만 운영합니다.</p><p style="margin-top:6px"><b>전화 예약 070-4291-7572</b></p></div>
+<div class="card"><h3>문의와 주사 일정</h3><p>클리닉 관련 문의는 전화로, 기타 궁금한 사항과 주사 스케줄 조정은 진료 시 문의해 주세요.</p></div>
+</div>
+<h2>비급여 행위료</h2>
+<div class="tbl t1">
+<div class="row c3 h"><span>분류</span><span>명칭</span><span>비용(원)</span></div>
+<div class="row c3"><span>감염검사</span><span>정밀면역검사 - 독감검사</span><span>35,000</span></div>
+<div class="row c3"><span>감염검사</span><span>바이러스항체 - MMR홍역</span><span>30,000</span></div>
+<div class="row c3"><span>감염검사</span><span>정밀면역검사 - A형간염항체</span><span>30,000</span></div>
+<div class="row c3"><span>주사료</span><span>로타바이러스 - 로타릭스 프리필드</span><span>150,000</span></div>
+<div class="row c3"><span>주사료</span><span>로타바이러스 - 로타텍액</span><span>100,000</span></div>
+<div class="row c3"><span>주사료</span><span>수두 - 스카이바리셀라주</span><span>35,000</span></div>
+<div class="row c3"><span>주사료</span><span>사람유두종바이러스 - 서바릭스 프리필드</span><span>120,000</span></div>
+<div class="row c3"><span>주사료</span><span>사람유두종바이러스 - 가다실 프리필드</span><span>150,000</span></div>
+<div class="row c3"><span>주사료</span><span>프리오릭스주 (홍역·유행성이하선염·풍진, 0.5ml)</span><span>40,000</span></div>
+<div class="row c3"><span>주사료</span><span>인플루엔자 - 독감4가 프리필드</span><span>40,000</span></div>
+<div class="row c3"><span>주사료</span><span>Tdap - 아다셀주</span><span>50,000</span></div>
+<div class="row c3"><span>주사료</span><span>폐렴구균 - 프리베나13주</span><span>130,000</span></div>
+<div class="row c3"><span>주사료</span><span>A형간염 - 하브릭스주 0.5ml</span><span>50,000</span></div>
+<div class="row c3"><span>주사료</span><span>A형간염 - 하브릭스주 1ml</span><span>80,000</span></div>
+<div class="row c3"><span>처치·수술료</span><span>성장판 (상담료 포함)</span><span>70,000</span></div>
+<div class="row c3"><span>처치·수술료</span><span>성장판2 (상담료 포함)</span><span>35,000</span></div>
+<div class="row c3"><span>기타</span><span>성장호르몬 (정밀면역검사)</span><span>500,000~700,000</span></div>
+<div class="row c3"><span>기타</span><span>비타민디 검사</span><span>20,000</span></div>
+</div>
+<h2>비급여 약제비</h2>
+<div class="tbl t2">
+<div class="row c3 h"><span>명칭</span><span>특이사항</span><span>비용(원)</span></div>
+<div class="row c3"><span>포도당키트 영양제</span><span></span><span>25,000~125,000</span></div>
+<div class="row c3"><span>비타벨라 프리필드주사 (1ml)</span><span>비타민디 주사</span><span>40,000</span></div>
+<div class="row c3"><span>페라미플루주 15ml</span><span>독감치료제 소아 50,000 ~ 성인 90,000</span><span>90,000</span></div>
+</div>
+<h2>제증명수수료</h2>
+<div class="tbl t2">
+<div class="row c3 h"><span>명칭</span><span>특이사항</span><span>비용(원)</span></div>
+<div class="row c3"><span>영문 일반진단서</span><span></span><span>20,000</span></div>
+<div class="row c3"><span>일반진단서</span><span>등원가능진단서 5,000 / 자필일반진단서 30,000</span><span>20,000</span></div>
+<div class="row c3"><span>통원확인서</span><span></span><span>3,000</span></div>
+<div class="row c3"><span>진료확인서</span><span></span><span>3,000</span></div>
+<div class="row c3"><span>진료기록(영상) CD</span><span></span><span>5,000</span></div>
+<div class="row c3"><span>진료기록사본 1~5매</span><span>1~5매까지</span><span>1,000</span></div>
+<div class="row c3"><span>진료기록사본 6매 이상</span><span>6매부터, 1매당</span><span>100</span></div>
+<div class="row c3"><span>제증명서 사본</span><span>추가 1통당</span><span>1,000</span></div>
+</div>
+<h2>개인정보와 영상정보 방침</h2>
+<details><summary>개인정보 처리방침 (2016.5.3 시행)</summary><div class="doc">
+<p>달소아청소년과 의원은 귀하의 개인정보를 매우 중요시하며, 개인정보보호법을 준수하고 있습니다. 본 개인정보처리방침은 귀하께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다. 이 개인정보처리방침의 순서는 다음과 같습니다.</p>
+<h4>1. 수집하는 개인정보의 항목</h4>
+<p>달소아청소년과는 진료를 위해 의료법에 의해 명시된 최소한의 개인정보만을 수집합니다. 아래의 수집 항목은 의료법 시행규칙 제14조(진료기록부 등의 기재사항)에 근거한 필수 기재 항목입니다.</p>
+<p>- 수집항목 : 성명, 주민등록번호, 주소, 연락처</p>
+<p>※ 근거 : 의료법에 의해 고유식별정보 및 진료정보를 의무적으로 보유하여야 함. (별도 동의 불필요)</p>
+<h4>2. 개인정보의 수집 및 이용목적</h4>
+<p>달소아청소년과는 수집한 개인정보를 진료의 목적으로만 사용하며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.</p>
+<h4>3. 개인정보의 보유 및 이용기간 및 파기절차 및 파기방법</h4>
+<p>달소아청소년과는 보유기간이 경과하거나 처리목적이 달성되면 개인정보를 지체 없이 파기합니다.</p>
+<p>- 보유기간 : 진료기록부 10년(필요시 연장 가능)</p>
+<p>※ 근거 - 의료법시행규칙 제15조(진료에 관한 기록의 보존) 10년 동안 보유</p>
+<p>- 파기절차 : 법정 보유기간 후 파기방법에 의하여 즉시 파기</p>
+<p>- 파기방법 : 전자적 파일은 재생할 수 없는 기술적 방법을 사용하여 삭제하고 종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각하여 파기</p>
+<h4>4. 이용자 및 법정대리인의 권리와 그 행사방법</h4>
+<p>이용자 및 법정대리인은 개인정보와 관련하여 전화, 서면 등을 이용하여 개인정보 열람 등의 권리를 행사할 수 있으며, 달소아청소년과는 지체 없이 필요한 조치를 합니다.</p>
+<p>※ 법에 의해 보관이 의무화된 개인정보는 요청이 있더라도 보관기간 내에 수정, 삭제할 수 없습니다.</p>
+<h4>5. 개인정보의 제3자 제공</h4>
+<p>달소아청소년과는 국민건강보험법에 의거 건강보험심사평가원에 요양급여비용 청구를 위해 진료기록을 제출합니다.</p>
+<p>※ 법에 의해 의무적으로 제출하는 사항이므로 별도의 제공 동의 불필요</p>
+<h4>6. 개인정보 위탁 처리</h4>
+<p>달소아청소년과는 개인정보의 관리시스템의 관리를 위해 다음의 회사에 개인정보를 위탁하고 있습니다.</p>
+<p>- 전자진료기록 관리 : 히포크라테스</p>
+<p>- 검사수탁 관리 : 이원의료재단</p>
+<p>- 예약시스템 관리 : 히포크라테스</p>
+<h4>7. 개인정보 보호 책임자</h4>
+<p>- 달소아청소년과의원 / 원장 조성희 / 054-253-7576</p>
+<h4>8. 개인정보의 안전성 확보조치</h4>
+<p>달소아청소년과는 이용자의 개인정보보호를 위한 기술적 대책으로서 여러 보안장치를 마련하고 있습니다. 이용자께서 제공하신 모든 정보는 방화벽 등 보안장비에 의해 안전하게 보호/관리되고 있습니다.</p>
+<p>또한 이용자의 개인정보를 처리하는 인원을 최소한으로 제한하고 정기적인 교육과 비밀번호 갱신을 통해 개인정보가 유출되지 않도록 안전하게 관리하고 있습니다.</p>
+<h4>9. 정책 변경에 따른 공지의무</h4>
+<p>이 개인정보 처리방침은 2016년 1월 21일에 제정되었으며 법령, 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 시에는 변경되는 개인정보처리방침을 시행하기 최소 7일 전에 달소아청소년과 홈페이지를 통해 변경이유 및 내용 등을 공지하도록 하겠습니다.</p>
+<p><b>공고일자 2016년 5월 3일 / 시행일자 2016년 5월 3일</b></p>
+</div></details>
+<details><summary>영상정보처리기기 운영·관리방침</summary><div class="doc">
+<p>달소아청소년과 의원(이하 "의원"이라 함)은 영상정보처리기기 운영·관리 방침을 통해 의원에서 처리하는 영상정보가 어떻게 이용, 관리되고 있는지 알려드립니다.</p>
+<h4>1. 영상정보처리기기의 설치근거 및 설치목적</h4>
+<p>의원은 "개인정보보호법" 제30조 제1항 및 같은 법 시행령 제25조 제1항에 따라 다음과 같은 목적으로 영상정보처리기기를 설치, 운영합니다.</p>
+<p>- 시설안전 및 화재예방</p>
+<p>- 고객의 안전을 위한 범죄 예방</p>
+<h4>2. 설치대수, 설치위치 및 촬영범위</h4>
+<p>의원 CCTV를 아래와 같이 설치·운영하고 있습니다.</p>
+<p>- 설치대수: 총 4대</p>
+<p>- 설치위치: 대기실 및 주사실</p>
+<p>- 촬영범위: 대기실 및 주사실</p>
+<h4>3. 관리책임자 및 접근 권한자</h4>
+<p>의원은 정보주체의 영상정보를 보호하기 위하여 개인영상정보관리책임자를 두고 있습니다.</p>
+<table><tr><th></th><th>이름</th><th>직위</th><th>소속</th><th>연락처</th></tr><tr><td>관리책임</td><td>조성희</td><td>원장</td><td>달소아청소년과의원</td><td>054-253-7576</td></tr></table>
+<h4>4. 영상정보의 촬영시간, 보관기간, 보관장소 및 처리방법</h4>
+<p>- 영상정보의 촬영시간 : 24시간</p>
+<p>- 영상정보의 보관기간 : 2달</p>
+<p>- 영상정보의 보관장소 : CCTV 녹화기 설치장소인 의원 내부</p>
+<p>- 영상정보의 처리방법 : 2달 경과 후 자동삭제, 출력물의 경우 파쇄 또는 소각</p>
+<h4>5. 정보주체의 영상정보 열람 등 요구에 대한 조치</h4>
+<p>정보주체는 개인영상정보에 대하여 열람 및 존재확인을 의원의 개인영상정보보호책임자에 요구할 수 있습니다. 정보주체가 열람 등을 요구할 수 있는 개인영상정보는 정보주체 자신이 촬영된 개인영상정보 및 명백히 정보주체의 급박한 생명, 신체, 재산의 이익을 위하여 필요한 개인영상정보에 한합니다. 이 경우 의원은 지체 없이 필요한 조치를 취하며, 이때 열람 및 존재확인 요구를 한 정보주체는 신분을 확인할 수 있는 본인이거나 정당한 대리인인지를 확인할 수 있는 주민등록증, 운전면허증, 여권 등의 신분증명서를 제출하여야 합니다.</p>
+<h4>6. 개인영상정보처리기기의 관리 위탁에 관한 사항</h4>
+<p>의원은 아래와 같이 영상정보처리기기 설치 및 관리를 위탁하고 있으며 관계법령에 따라 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하고 있습니다.</p>
+<table><tr><th>위탁업체</th><th>연락처</th></tr><tr><td>ADT 캡스</td><td>1588-6400</td></tr></table>
+<h4>7. 영상정보의 안전성 확보조치</h4>
+<p>영상정보처리기기에 의하여 수집, 처리되는 개인영상정보의 접근권한은 영상정보관리책임자로 제한하고 있으며 비밀번호 설정으로 안정성 확보에 필요한 조치를 하고 있습니다.</p>
+<p>개인정보주체의 동의 또는 법령의 규정 등에 의하여 개인영상정보를 수집 목적 이외의 용도로 이용하거나 제3자에게 제공하는 경우에는 아래와 같은 사항을 개인영상정보 관리대장에 기록하고 이를 관리합니다.</p>
+<p>- 개인영상정보파일의 명칭</p>
+<p>- 이용하거나 제공받은 자의 명칭</p>
+<p>- 이용 또는 제공의 목적</p>
+<p>- 법령상 이용 또는 제공근거가 있는 경우 그 근거</p>
+<p>- 이용 또는 제공의 기간이 정하여져 있는 경우에는 그 기간</p>
+<p>- 이용 또는 제공의 형태</p>
+<h4>8. 개인영상정보처리기기 운영, 관리방침의 변경에 관한 사항</h4>
+<p>의원의 영상정보처리기기의 운영, 관리방침은 대기실 내 책자 및 홈페이지에 항상 게시하며 현 영상정보처리기기 운영, 관리방침의 내용 추가, 삭제 및 수정이 있을 시 의원 홈페이지를 통해 고지할 것입니다. (홈페이지 주소 : www.dalkids.com)</p>
+</div></details>
+</section>
+<section class="pg" data-page="growth" hidden>
+<h1>성장 클리닉</h1>
+<div class="cards">
+<div class="card warn"><h3>1. 신환은 예약제로만</h3><p>클리닉 신환(첫 진료)은 예약제로만 운영합니다.</p><p class="red">당일 접수 불가능</p></div>
+<div class="card"><h3>2. 첫 진료 시 성장판</h3><p>성장판은 비급여입니다. 단, 성장호르몬 결핍이나 성조숙증이 의심되어 상담 후 당일 추가 검사를 하면 성장판은 급여로 전환됩니다.</p></div>
+<div class="card"><h3>3. 준비해 오세요</h3><p>첫 진료 시 최근 3년간 측정한 키와 몸무게를 알아오시면 좋습니다.</p></div>
+</div>
+<h2>검사와 주사 안내</h2>
+<div class="cards">
+<div class="card"><p>중간 검사 시 금식이 원칙입니다.</p></div>
+<div class="card"><p>45분 검사: 주사 맞고 45분 후에 한 번 채혈합니다.</p></div>
+<div class="card"><p>궁금한 사항과 주사 스케줄 조정은 진료 시 문의해 주세요.</p></div>
+</div>
+<h2>성장 클리닉 문의</h2>
+<a class="call" href="tel:07042917572" style="max-width:380px"><span>클리닉 코디네이터</span><strong>070-4291-7572</strong></a>
+</section>
+<section class="pg" data-page="map" hidden>
+<h1>오시는 길</h1>
+<img class="map" src="img/map.png" alt="오시는 길 지도" data-fb>
+<div class="ph" data-fbx hidden>지도 이미지를 불러오지 못했어요.</div>
+<p style="margin:10px 4px 0"><a href="https://map.naver.com/p/search/%EA%B2%BD%EB%B6%81%20%ED%8F%AC%ED%95%AD%EC%8B%9C%20%EB%B6%81%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20157" target="_blank" rel="noopener" style="color:var(--acc);font-weight:700">네이버 지도에서 보기</a></p>
+<div class="addr"><p>경북 포항시 북구 양덕동 648-1 / 경북 포항시 북구 법원로 157</p><p>전화 <a href="tel:0542537576">054-253-7576</a> · 팩스 054-255-7576</p></div>
+<h2>버스 노선</h2>
+<div class="tbl">
+<div class="row c3 h"><span>거리</span><span>경유 노선</span><span>정류소</span></div>
+<div class="row c3"><span>이마트 에브리데이 (도보 3분)</span><span>120, 206, 209, 양덕1</span><span>법원검찰청 (316081)</span></div>
+<div class="row c3"><span>태권스토리 인성관 앞 (도보 2분)</span><span>121, 206, 209, 양덕2</span><span>법원검찰청 (316082)</span></div>
+<div class="row c3"><span>포항중앙동물병원 앞 (도보 3분)</span><span>216</span><span>한국산업인력공단 (316085)</span></div>
+<div class="row c3"><span>누리마을감자탕 앞 (도보 4분)</span><span>216</span><span>한국산업인력공단 (316035)</span></div>
+<div class="row c3"><span>교동면옥 맞은편 (도보 4분)</span><span>양덕2</span><span>시티병원 (316134)</span></div>
+</div>
+</section>
+
+<footer><div><span>&copy; 2015 달소아과, Inc.</span><span>경북 포항시 북구 법원로 157 · 054-253-7576</span><span class="vs" role="group" aria-label="디자인 선택"><span>디자인</span><button type="button" data-view="old" aria-pressed="true">성수 type</button><button type="button" data-view="new" aria-pressed="false">벤토그리드 type</button></span><div class="sk" role="group" aria-label="색상 전환"><span>색상</span><button type="button" data-skin="" aria-pressed="true">기본</button><button type="button" data-skin="coral" aria-pressed="false">코랄</button><button type="button" data-skin="mint" aria-pressed="false">민트</button></div></div></footer>
+</div>
+<div id="v-old">
+<div class="stars" aria-hidden="true">
+<img src="img/Box_bg_patten.png" alt="" style="left:125px" data-fb><img src="img/Box_bg_patten.png" alt="" style="left:1130px" data-fb>
+<div data-fbx hidden>
+<svg style="left:9%;top:24px" width="50" height="50" viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg>
+<svg style="left:20%;top:90px" width="34" height="34" viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg>
+<svg style="right:14%;top:20px" width="40" height="40" viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7z"/></svg>
+</div></div>
+<header>
+<a class="logo" href="#main" aria-label="달 소아청소년과 의원 메인">
+<img class="lg" src="img/Box_sign.png" alt="moon pediatrics 달 소아과 의원" data-fb>
+<span class="fbl" data-fbx hidden><span><b>moon pediatrics</b><small>달 소아과 의원</small></span>
+<svg width="60" height="72" viewBox="0 0 64 76" aria-hidden="true"><path d="M44 4C22 8 8 26 12 46c4 20 24 30 46 22C40 66 30 54 30 38S36 10 44 4z" fill="#f2b95a"/></svg></span>
+</a>
+</header>
+
+<div class="wrap">
+<nav aria-label="주요 메뉴">
+<a href="#doctors" data-p="doctors"><i><img class="bt" data-fb src="img/Butten_doctor_normal.png" alt=""><svg data-fbx hidden viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/><path d="M9 15v3"/></svg></i>의료진 안내</a>
+<a href="#info" data-p="info"><i><img class="bt" data-fb src="img/Butten_information_normal.png" alt=""><svg data-fbx hidden viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 2h6v4H9zM8.5 11h7M8.5 15h7"/></svg></i>진료 안내</a>
+<a href="#growth" data-p="growth"><i><img class="bt" data-fb src="img/Butten_giraffe_normal.png" alt=""><svg data-fbx hidden viewBox="0 0 24 24"><path d="M12 21V4M7 8l5-4 5 4M5 21h14M8 12h3M8 16h3"/></svg></i>성장 클리닉</a>
+<a href="#map" data-p="map"><i><img class="bt" data-fb src="img/Butten_navi_normal.png" alt=""><svg data-fbx hidden viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></i>오시는 길</a>
+</nav>
+<main>
+
+<section class="pg" id="p-main">
+<h1>달 소아청소년과 의원</h1>
+<div class="top">
+<div class="status" aria-live="polite"><span class="badge" id="badge">확인 중</span><p class="big" id="today"></p><p id="sub"></p></div>
+<a class="call" href="tel:0542537576"><span>전화 예약</span><strong>054-253-7576</strong></a>
+</div>
+<div class="notice" data-end="2026-11-20"><b>휴진</b> 2026년 11월 20일(금) 휴진합니다.<small></small></div>
+<div class="notice"><b>예약</b> 클리닉 신환 접수는 11월 2일 월요일 9시 부터 전화 접수합니다.<small></small></div>
+<div class="notice"><b>진료안내</b> 저희 병원은 예약제로 운영됩니다. 예약하지 않고 오시면 대기시간이 길어지거나 진료가 어려울 수 있으니, 전화예약 후 예약된 진료일에 내원해 주세요.</div>
+<div class="notice" id="upc" hidden></div>
+<h2 style="margin-top:36px">진료 시간</h2>
+<div class="tbl" id="hours">
+<div class="row" data-d="1,2,5"><em>월 · 화 · 금</em><span>오전 9:00 ~ 오후 6:00 (점심 오후 1:00 ~ 2:00)</span></div>
+<div class="row" data-d="3"><em>수요일</em><span>오후 2:00 ~ 오후 6:00</span></div>
+<div class="row" data-d="4"><em>목요일</em><span>휴진</span></div>
+<div class="row" data-d="6"><em>토요일</em><span>오전 8:00 ~ 12:00</span></div>
+<div class="row" data-d="0"><em>일요일 · 공휴일</em><span>휴진</span></div>
+</div>
+<h2>성장 클리닉 안내</h2>
+<div class="cards">
+<div class="card"><p>클리닉 관련 문의는 전화로 가능합니다.</p></div>
+<div class="card"><p>궁금하신 사항과 주사 스케줄 조정은 진료 시 문의해 주세요.</p></div>
+<div class="card"><p>중간 검사 시 금식이 원칙입니다.</p></div>
+<div class="card"><p>45분 검사: 주사 맞고 45분 후에 한 번 채혈합니다.</p></div>
+</div>
+</section>
+
+<section class="pg" id="p-doctors">
+<h1>의료진 소개</h1>
+<div class="dr">
+<div><div class="pic"><img src="img/doctor-cho.jpg" width="193" height="235" alt="달소아과 원장 조성희" data-fb><div data-fbx hidden><div><b>조</b>원장 사진</div></div></div><h3>조성희<small>달소아과 원장</small></h3></div>
+<div class="cv" style="align-content:start">
+<div><h3>약력</h3><ul>
+<li>충남대학교 의과대학 졸업</li><li>충남대학교 의과대학 대학원 소아과학 석사</li>
+<li>서울아산병원 인턴·레지던트 수료, 소아청소년과 전문의 취득</li>
+<li>서울아산병원 외래교수 2010.03 ~ 2012.02 위촉</li><li>서울아산병원 외래교수 2012.03 ~ 2014.02 위촉</li><li>서울아산병원 외래교수 2014.03 ~ 2016.02 위촉</li><li>서울아산병원 외래교수 2016.03 ~ 2018.02 위촉</li><li>서울아산병원 외래교수 2018.03 ~ 2020.02 위촉</li><li>서울아산병원 외래교수 2020.03 ~ 2022.02 위촉</li><li>서울아산병원 외래교수 2022.03 ~ 2024.02 위촉</li><li>현 서울아산병원 외래교수 2024.03 ~ 2026.02 위촉</li>
+<li>대전 퍼스트365소아청소년과 병원 원장 역임</li>
+<li>포항선린병원 소아청소년과 과장 역임</li><li>포항선린병원 성장 및 성조숙증 클리닉 운영</li>
+<li>서울대학교 국제모유수유집중강좌 수료</li>
+<li>2013·2014 대구경북 건강한모유수유아선발대회 심사위원</li></ul></div>
+<div><h3>학회활동</h3><ul><li>대한소아청소년과학회 정회원</li><li>대한의사협회 정회원</li><li>대한소아내분비학회 정회원</li><li>대한성장의학회 정회원</li><li>대한소아알레르기학회 정회원</li><li>대한소아신장학회 준회원</li><li>대한소아심장학회 준회원</li></ul></div>
+<div><h3>주요 진료분야</h3><ul><li>저신장 클리닉</li><li>성조숙증 클리닉</li><li>알레르기, 호흡기 질환</li></ul></div>
+<div><h3>주요 논문</h3><ul><li>1세 이하의 소아에서 발병한 신증후군의 진단 및 치료 (대한소아신장학회지 2009)</li><li>신생아 집중치료실 퇴원아의 신생아 청력 선별검사 (대한신생아학회지 2009)</li><li>심실 중격 결손을 동반한 대동맥 축착의 교정술 후 좌심실 유출로 협착의 예측인자 (충남대 석사논문)</li></ul></div>
+</div></div>
+</section>
+
+<section class="pg" id="p-info">
+<h1>진료 안내</h1>
+<h2>진료 시간</h2>
+<div class="tbl" id="hours2"></div>
+<h2>휴진 시간</h2>
+<div class="tbl">
+<div class="row"><em>점심</em><span>오후 1:00 ~ 오후 2:00</span></div>
+<div class="row"><em>수요일</em><span>오전 휴진</span></div>
+<div class="row"><em>목요일</em><span>휴진</span></div>
+</div>
+<p style="color:var(--mute);margin:8px 4px 0">공휴일 및 목요일, 일요일은 휴진입니다.</p>
+<h2>이용 방법</h2>
+<div class="cards">
+<div class="card"><h3>예약제로 운영해요</h3><p>대기 시간 단축을 위해 예약제로 운영합니다. 미리 전화 접수 후 방문해 주세요. 예약·당일접수 마감 후에는 당일 진료가 어렵습니다.</p><p style="margin-top:6px"><b>전화 예약 054-253-7576</b></p></div>
+<div class="card warn"><h3>성장·성조숙증 클리닉</h3><p>예약제로만 운영합니다.</p><p style="margin-top:6px"><b>전화 예약 070-4291-7572</b></p></div>
+<div class="card"><h3>문의와 주사 일정</h3><p>클리닉 관련 문의는 전화로, 기타 궁금한 사항과 주사 스케줄 조정은 진료 시 문의해 주세요.</p></div>
+</div>
+<h2>비급여 행위료</h2>
+<div class="tbl t1">
+<div class="row c3 h"><span>분류</span><span>명칭</span><span>비용(원)</span></div>
+<div class="row c3"><span>감염검사</span><span>정밀면역검사 - 독감검사</span><span>35,000</span></div>
+<div class="row c3"><span>감염검사</span><span>바이러스항체 - MMR홍역</span><span>30,000</span></div>
+<div class="row c3"><span>감염검사</span><span>정밀면역검사 - A형간염항체</span><span>30,000</span></div>
+<div class="row c3"><span>주사료</span><span>로타바이러스 - 로타릭스 프리필드</span><span>150,000</span></div>
+<div class="row c3"><span>주사료</span><span>로타바이러스 - 로타텍액</span><span>100,000</span></div>
+<div class="row c3"><span>주사료</span><span>수두 - 스카이바리셀라주</span><span>35,000</span></div>
+<div class="row c3"><span>주사료</span><span>사람유두종바이러스 - 서바릭스 프리필드</span><span>120,000</span></div>
+<div class="row c3"><span>주사료</span><span>사람유두종바이러스 - 가다실 프리필드</span><span>150,000</span></div>
+<div class="row c3"><span>주사료</span><span>프리오릭스주 (홍역·유행성이하선염·풍진, 0.5ml)</span><span>40,000</span></div>
+<div class="row c3"><span>주사료</span><span>인플루엔자 - 독감4가 프리필드</span><span>40,000</span></div>
+<div class="row c3"><span>주사료</span><span>Tdap - 아다셀주</span><span>50,000</span></div>
+<div class="row c3"><span>주사료</span><span>폐렴구균 - 프리베나13주</span><span>130,000</span></div>
+<div class="row c3"><span>주사료</span><span>A형간염 - 하브릭스주 0.5ml</span><span>50,000</span></div>
+<div class="row c3"><span>주사료</span><span>A형간염 - 하브릭스주 1ml</span><span>80,000</span></div>
+<div class="row c3"><span>처치·수술료</span><span>성장판 (상담료 포함)</span><span>70,000</span></div>
+<div class="row c3"><span>처치·수술료</span><span>성장판2 (상담료 포함)</span><span>35,000</span></div>
+<div class="row c3"><span>기타</span><span>성장호르몬 (정밀면역검사)</span><span>500,000~700,000</span></div>
+<div class="row c3"><span>기타</span><span>비타민디 검사</span><span>20,000</span></div>
+</div>
+<h2>비급여 약제비</h2>
+<div class="tbl t2">
+<div class="row c3 h"><span>명칭</span><span>특이사항</span><span>비용(원)</span></div>
+<div class="row c3"><span>포도당키트 영양제</span><span></span><span>25,000~125,000</span></div>
+<div class="row c3"><span>비타벨라 프리필드주사 (1ml)</span><span>비타민디 주사</span><span>40,000</span></div>
+<div class="row c3"><span>페라미플루주 15ml</span><span>독감치료제 소아 50,000 ~ 성인 90,000</span><span>90,000</span></div>
+</div>
+<h2>제증명수수료</h2>
+<div class="tbl t2">
+<div class="row c3 h"><span>명칭</span><span>특이사항</span><span>비용(원)</span></div>
+<div class="row c3"><span>영문 일반진단서</span><span></span><span>20,000</span></div>
+<div class="row c3"><span>일반진단서</span><span>등원가능진단서 5,000 / 자필일반진단서 30,000</span><span>20,000</span></div>
+<div class="row c3"><span>통원확인서</span><span></span><span>3,000</span></div>
+<div class="row c3"><span>진료확인서</span><span></span><span>3,000</span></div>
+<div class="row c3"><span>진료기록(영상) CD</span><span></span><span>5,000</span></div>
+<div class="row c3"><span>진료기록사본 1~5매</span><span>1~5매까지</span><span>1,000</span></div>
+<div class="row c3"><span>진료기록사본 6매 이상</span><span>6매부터, 1매당</span><span>100</span></div>
+<div class="row c3"><span>제증명서 사본</span><span>추가 1통당</span><span>1,000</span></div>
+</div>
+<h2>개인정보와 영상정보 방침</h2>
+<details><summary>개인정보 처리방침 (2016.5.3 시행)</summary><div class="doc">
+<p>달소아청소년과 의원은 귀하의 개인정보를 매우 중요시하며, 개인정보보호법을 준수하고 있습니다. 본 개인정보처리방침은 귀하께서 제공하시는 개인정보가 어떠한 용도와 방식으로 이용되고 있으며 개인정보보호를 위해 어떠한 조치가 취해지고 있는지 알려드립니다. 이 개인정보처리방침의 순서는 다음과 같습니다.</p>
+<h4>1. 수집하는 개인정보의 항목</h4>
+<p>달소아청소년과는 진료를 위해 의료법에 의해 명시된 최소한의 개인정보만을 수집합니다. 아래의 수집 항목은 의료법 시행규칙 제14조(진료기록부 등의 기재사항)에 근거한 필수 기재 항목입니다.</p>
+<p>- 수집항목 : 성명, 주민등록번호, 주소, 연락처</p>
+<p>※ 근거 : 의료법에 의해 고유식별정보 및 진료정보를 의무적으로 보유하여야 함. (별도 동의 불필요)</p>
+<h4>2. 개인정보의 수집 및 이용목적</h4>
+<p>달소아청소년과는 수집한 개인정보를 진료의 목적으로만 사용하며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.</p>
+<h4>3. 개인정보의 보유 및 이용기간 및 파기절차 및 파기방법</h4>
+<p>달소아청소년과는 보유기간이 경과하거나 처리목적이 달성되면 개인정보를 지체 없이 파기합니다.</p>
+<p>- 보유기간 : 진료기록부 10년(필요시 연장 가능)</p>
+<p>※ 근거 - 의료법시행규칙 제15조(진료에 관한 기록의 보존) 10년 동안 보유</p>
+<p>- 파기절차 : 법정 보유기간 후 파기방법에 의하여 즉시 파기</p>
+<p>- 파기방법 : 전자적 파일은 재생할 수 없는 기술적 방법을 사용하여 삭제하고 종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각하여 파기</p>
+<h4>4. 이용자 및 법정대리인의 권리와 그 행사방법</h4>
+<p>이용자 및 법정대리인은 개인정보와 관련하여 전화, 서면 등을 이용하여 개인정보 열람 등의 권리를 행사할 수 있으며, 달소아청소년과는 지체 없이 필요한 조치를 합니다.</p>
+<p>※ 법에 의해 보관이 의무화된 개인정보는 요청이 있더라도 보관기간 내에 수정, 삭제할 수 없습니다.</p>
+<h4>5. 개인정보의 제3자 제공</h4>
+<p>달소아청소년과는 국민건강보험법에 의거 건강보험심사평가원에 요양급여비용 청구를 위해 진료기록을 제출합니다.</p>
+<p>※ 법에 의해 의무적으로 제출하는 사항이므로 별도의 제공 동의 불필요</p>
+<h4>6. 개인정보 위탁 처리</h4>
+<p>달소아청소년과는 개인정보의 관리시스템의 관리를 위해 다음의 회사에 개인정보를 위탁하고 있습니다.</p>
+<p>- 전자진료기록 관리 : 히포크라테스</p>
+<p>- 검사수탁 관리 : 이원의료재단</p>
+<p>- 예약시스템 관리 : 히포크라테스</p>
+<h4>7. 개인정보 보호 책임자</h4>
+<p>- 달소아청소년과의원 / 원장 조성희 / 054-253-7576</p>
+<h4>8. 개인정보의 안전성 확보조치</h4>
+<p>달소아청소년과는 이용자의 개인정보보호를 위한 기술적 대책으로서 여러 보안장치를 마련하고 있습니다. 이용자께서 제공하신 모든 정보는 방화벽 등 보안장비에 의해 안전하게 보호/관리되고 있습니다.</p>
+<p>또한 이용자의 개인정보를 처리하는 인원을 최소한으로 제한하고 정기적인 교육과 비밀번호 갱신을 통해 개인정보가 유출되지 않도록 안전하게 관리하고 있습니다.</p>
+<h4>9. 정책 변경에 따른 공지의무</h4>
+<p>이 개인정보 처리방침은 2016년 1월 21일에 제정되었으며 법령, 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 시에는 변경되는 개인정보처리방침을 시행하기 최소 7일 전에 달소아청소년과 홈페이지를 통해 변경이유 및 내용 등을 공지하도록 하겠습니다.</p>
+<p><b>공고일자 2016년 5월 3일 / 시행일자 2016년 5월 3일</b></p>
+</div></details>
+<details><summary>영상정보처리기기 운영·관리방침</summary><div class="doc">
+<p>달소아청소년과 의원(이하 "의원"이라 함)은 영상정보처리기기 운영·관리 방침을 통해 의원에서 처리하는 영상정보가 어떻게 이용, 관리되고 있는지 알려드립니다.</p>
+<h4>1. 영상정보처리기기의 설치근거 및 설치목적</h4>
+<p>의원은 "개인정보보호법" 제30조 제1항 및 같은 법 시행령 제25조 제1항에 따라 다음과 같은 목적으로 영상정보처리기기를 설치, 운영합니다.</p>
+<p>- 시설안전 및 화재예방</p>
+<p>- 고객의 안전을 위한 범죄 예방</p>
+<h4>2. 설치대수, 설치위치 및 촬영범위</h4>
+<p>의원 CCTV를 아래와 같이 설치·운영하고 있습니다.</p>
+<p>- 설치대수: 총 4대</p>
+<p>- 설치위치: 대기실 및 주사실</p>
+<p>- 촬영범위: 대기실 및 주사실</p>
+<h4>3. 관리책임자 및 접근 권한자</h4>
+<p>의원은 정보주체의 영상정보를 보호하기 위하여 개인영상정보관리책임자를 두고 있습니다.</p>
+<table><tr><th></th><th>이름</th><th>직위</th><th>소속</th><th>연락처</th></tr><tr><td>관리책임</td><td>조성희</td><td>원장</td><td>달소아청소년과의원</td><td>054-253-7576</td></tr></table>
+<h4>4. 영상정보의 촬영시간, 보관기간, 보관장소 및 처리방법</h4>
+<p>- 영상정보의 촬영시간 : 24시간</p>
+<p>- 영상정보의 보관기간 : 2달</p>
+<p>- 영상정보의 보관장소 : CCTV 녹화기 설치장소인 의원 내부</p>
+<p>- 영상정보의 처리방법 : 2달 경과 후 자동삭제, 출력물의 경우 파쇄 또는 소각</p>
+<h4>5. 정보주체의 영상정보 열람 등 요구에 대한 조치</h4>
+<p>정보주체는 개인영상정보에 대하여 열람 및 존재확인을 의원의 개인영상정보보호책임자에 요구할 수 있습니다. 정보주체가 열람 등을 요구할 수 있는 개인영상정보는 정보주체 자신이 촬영된 개인영상정보 및 명백히 정보주체의 급박한 생명, 신체, 재산의 이익을 위하여 필요한 개인영상정보에 한합니다. 이 경우 의원은 지체 없이 필요한 조치를 취하며, 이때 열람 및 존재확인 요구를 한 정보주체는 신분을 확인할 수 있는 본인이거나 정당한 대리인인지를 확인할 수 있는 주민등록증, 운전면허증, 여권 등의 신분증명서를 제출하여야 합니다.</p>
+<h4>6. 개인영상정보처리기기의 관리 위탁에 관한 사항</h4>
+<p>의원은 아래와 같이 영상정보처리기기 설치 및 관리를 위탁하고 있으며 관계법령에 따라 위탁계약 시 개인정보가 안전하게 관리될 수 있도록 필요한 사항을 규정하고 있습니다.</p>
+<table><tr><th>위탁업체</th><th>연락처</th></tr><tr><td>ADT 캡스</td><td>1588-6400</td></tr></table>
+<h4>7. 영상정보의 안전성 확보조치</h4>
+<p>영상정보처리기기에 의하여 수집, 처리되는 개인영상정보의 접근권한은 영상정보관리책임자로 제한하고 있으며 비밀번호 설정으로 안정성 확보에 필요한 조치를 하고 있습니다.</p>
+<p>개인정보주체의 동의 또는 법령의 규정 등에 의하여 개인영상정보를 수집 목적 이외의 용도로 이용하거나 제3자에게 제공하는 경우에는 아래와 같은 사항을 개인영상정보 관리대장에 기록하고 이를 관리합니다.</p>
+<p>- 개인영상정보파일의 명칭</p>
+<p>- 이용하거나 제공받은 자의 명칭</p>
+<p>- 이용 또는 제공의 목적</p>
+<p>- 법령상 이용 또는 제공근거가 있는 경우 그 근거</p>
+<p>- 이용 또는 제공의 기간이 정하여져 있는 경우에는 그 기간</p>
+<p>- 이용 또는 제공의 형태</p>
+<h4>8. 개인영상정보처리기기 운영, 관리방침의 변경에 관한 사항</h4>
+<p>의원의 영상정보처리기기의 운영, 관리방침은 대기실 내 책자 및 홈페이지에 항상 게시하며 현 영상정보처리기기 운영, 관리방침의 내용 추가, 삭제 및 수정이 있을 시 의원 홈페이지를 통해 고지할 것입니다. (홈페이지 주소 : www.dalkids.com)</p>
+</div></details>
+</section>
+
+<section class="pg" id="p-growth">
+<h1>성장 클리닉</h1>
+<div class="cards">
+<div class="card warn"><h3>1. 신환은 예약제로만</h3><p>클리닉 신환(첫 진료)은 예약제로만 운영합니다.</p><p class="red">당일 접수 불가능</p></div>
+<div class="card"><h3>2. 첫 진료 시 성장판</h3><p>성장판은 비급여입니다. 단, 성장호르몬 결핍이나 성조숙증이 의심되어 상담 후 당일 추가 검사를 하면 성장판은 급여로 전환됩니다.</p></div>
+<div class="card"><h3>3. 준비해 오세요</h3><p>첫 진료 시 최근 3년간 측정한 키와 몸무게를 알아오시면 좋습니다.</p></div>
+</div>
+<h2>검사와 주사 안내</h2>
+<div class="cards">
+<div class="card"><p>중간 검사 시 금식이 원칙입니다.</p></div>
+<div class="card"><p>45분 검사: 주사 맞고 45분 후에 한 번 채혈합니다.</p></div>
+<div class="card"><p>궁금한 사항과 주사 스케줄 조정은 진료 시 문의해 주세요.</p></div>
+</div>
+<h2>성장 클리닉 문의</h2>
+<a class="call" href="tel:07042917572" style="max-width:380px"><span>클리닉 코디네이터</span><strong>070-4291-7572</strong></a>
+</section>
+
+<section class="pg" id="p-map">
+<h1>오시는 길</h1>
+<img class="map" src="img/map.png" alt="오시는 길 지도" data-fb>
+<div class="ph" data-fbx hidden>지도 이미지를 불러오지 못했어요.</div>
+<p style="margin:10px 4px 0"><a href="https://map.naver.com/p/search/%EA%B2%BD%EB%B6%81%20%ED%8F%AC%ED%95%AD%EC%8B%9C%20%EB%B6%81%EA%B5%AC%20%EB%B2%95%EC%9B%90%EB%A1%9C%20157" target="_blank" rel="noopener" style="color:#b8503d;font-weight:700">네이버 지도에서 보기</a></p>
+<div class="addr"><p>경북 포항시 북구 양덕동 648-1 / 경북 포항시 북구 법원로 157</p><p>전화 <a href="tel:0542537576">054-253-7576</a> · 팩스 054-255-7576</p></div>
+<h2>버스 노선</h2>
+<div class="tbl">
+<div class="row c3 h"><span>거리</span><span>경유 노선</span><span>정류소</span></div>
+<div class="row c3"><span>이마트 에브리데이 (도보 3분)</span><span>120, 206, 209, 양덕1</span><span>법원검찰청 (316081)</span></div>
+<div class="row c3"><span>태권스토리 인성관 앞 (도보 2분)</span><span>121, 206, 209, 양덕2</span><span>법원검찰청 (316082)</span></div>
+<div class="row c3"><span>포항중앙동물병원 앞 (도보 3분)</span><span>216</span><span>한국산업인력공단 (316085)</span></div>
+<div class="row c3"><span>누리마을감자탕 앞 (도보 4분)</span><span>216</span><span>한국산업인력공단 (316035)</span></div>
+<div class="row c3"><span>교동면옥 맞은편 (도보 4분)</span><span>양덕2</span><span>시티병원 (316134)</span></div>
+</div>
+</section>
+
+</main>
+</div>
+<footer><div><span>&copy; 2015 달소아과, Inc.</span><span class="vs" role="group" aria-label="디자인 선택"><span>디자인</span><button type="button" data-view="old" aria-pressed="true">성수 type</button><button type="button" data-view="new" aria-pressed="false">벤토그리드 type</button></span><a href="#" id="top">맨 위로</a></div></footer>
+
+</div>
+<script>(function(){
+var NEW=document.getElementById('v-new'),OLD=document.getElementById('v-old');
+var HOL={"2026-12-25":"성탄절","2027-01-01":"새해 첫날","2027-02-06":"설 연휴","2027-02-07":"설날","2027-02-08":"설 연휴","2027-02-09":"설날 대체공휴일","2027-03-01":"삼일절","2027-05-01":"노동절","2027-05-03":"노동절 대체공휴일","2027-05-05":"어린이날","2027-05-13":"부처님오신날","2027-06-06":"현충일","2027-07-17":"제헌절","2027-07-19":"제헌절 대체공휴일","2027-08-15":"광복절","2027-08-16":"광복절 대체공휴일","2027-09-14":"추석 연휴","2027-09-15":"추석","2027-09-16":"추석 연휴","2027-10-03":"개천절","2027-10-04":"개천절 대체공휴일","2027-10-09":"한글날","2027-10-11":"한글날 대체공휴일","2027-12-25":"성탄절","2027-12-27":"성탄절 대체공휴일"};
+var CLO=[{d:"2026-11-20",t:"full"}];
+var D=['일','월','화','수','목','금','토'],M=[[540,780],[840,1080]],SCH={0:[],1:M,2:M,3:[[840,1080]],4:[],5:M,6:[[480,720]]},TL={full:'임시 휴진',am:'오전 휴진',pm:'오후 휴진'};
+function p(n){return String(n).padStart(2,'0')}
+function iso(d){return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())}
+function add(d,n){return new Date(d.getFullYear(),d.getMonth(),d.getDate()+n)}
+function pd(k){var a=k.split('-');return new Date(a[0],a[1]-1,a[2])}
+function f(m){var h=Math.floor(m/60);return (h<12?'오전 ':'오후 ')+(h>12?h-12:h)+':'+p(m%60)}
+function fd(d){return (d.getMonth()+1)+'월 '+d.getDate()+'일 ('+D[d.getDay()]+')'}
+function dd(n){return n===0?'오늘':n===1?'내일':'D-'+n}
+function slots(d){var k=iso(d);if(HOL[k])return[];var s=SCH[d.getDay()],c=CLO.filter(function(x){return x.d===k})[0];if(c){if(c.t==='full')return[];s=s.filter(function(x){return c.t==='am'?x[0]>=720:x[0]<720})}return s}
+function $(id){return document.getElementById(id)}
+function render(){
+ var now=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Seoul'})),mn=now.getHours()*60+now.getMinutes(),td=add(now,0),k=iso(now),s=slots(now),st='off',big,det;
+ function nextOpen(){for(var i=1;i<=30;i++){var d=add(td,i),sl=slots(d);if(sl.length)return (i===1?'내일':fd(d))+' '+f(sl[0][0])}return ''}
+ var cur=s.filter(function(x){return mn>=x[0]&&mn<x[1]})[0];
+ if(cur){st='ok';big='진료 중';det='오늘 '+f(s[0][0])+' ~ '+f(s[s.length-1][1])}
+ else if(s.length&&mn<s[0][0]){st='wr';big='진료 전';det=f(s[0][0])+'부터 진료'}
+ else if(s.length>1&&mn<s[s.length-1][0]){st='wr';big='점심시간';det=f(s[1][0])+'에 진료 재개'}
+ else{big=s.length?'진료 종료':HOL[k]?'공휴일 휴진':CLO.some(function(c){return c.d===k})?'임시 휴진':'오늘 휴진';det='다음 진료 '+nextOpen()}
+ var sv=$('stv');sv.className=st;sv.innerHTML='<div class="big"><span class="dot"></span>'+big+'</div>';$('std').textContent=det;
+ $('wk').innerHTML=D.map(function(n,i){return '<span class="'+(SCH[i].length?'':'off ')+(i===now.getDay()?'td':'')+'">'+n+'</span>'}).join('');
+ var hd=String(HOL[k]?0:now.getDay());
+ NEW.querySelectorAll('#hrs .hr,.tbl .row[data-d]').forEach(function(r){r.classList.toggle(r.classList.contains('hr')?'now':'today',r.dataset.d.split(',').indexOf(hd)>-1)});
+ var rg=[],i=0;while(rg.length<2&&i<30){var d=add(td,i);if(!SCH[d.getDay()].length)rg.push(d);i++}
+ $('cr').innerHTML=rg.map(function(d){return '<div class="cl"><span>'+fd(d)+'</span><span class="tg n">'+dd(Math.round((d-td)/864e5))+'</span></div>'}).join('');
+ var it=[];CLO.forEach(function(c){var d=pd(c.d);if(d>=td)it.push([d,fd(d)+' '+TL[c.t]])});
+ Object.keys(HOL).forEach(function(h){var d=pd(h);if(d>=td)it.push([d,fd(d)+' '+HOL[h]])});
+ it.sort(function(a,b){return a[0]-b[0]});
+ $('cn').innerHTML=it.length?it.slice(0,3).map(function(x){return '<div class="cl"><span>'+x[1]+'</span><span class="tg">'+dd(Math.round((x[0]-td)/864e5))+'</span></div>'}).join(''):'<p class="d">예정된 공지가 없습니다.</p>';
+ NEW.querySelectorAll('.nw[data-end]').forEach(function(n){n.hidden=now>new Date(n.dataset.end+'T23:59:59')});
+}
+render();setInterval(render,60000);
+var pc=$('phc');
+NEW.querySelectorAll('[data-sw]').forEach(function(b){b.addEventListener('click',function(){pc.classList.toggle('sw',b.dataset.sw==='1');NEW.querySelectorAll('[data-sw]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))})})});
+NEW.querySelectorAll('[data-plx]').forEach(function(el){
+ el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.setProperty('--px',((e.clientX-r.left)/r.width-.5).toFixed(3));el.style.setProperty('--py',((e.clientY-r.top)/r.height-.5).toFixed(3))});
+ el.addEventListener('mouseleave',function(){el.style.setProperty('--px',0);el.style.setProperty('--py',0)})});
+var pages=['doctors','info','growth','map'];
+function route(){var h=location.hash.slice(1),pg=pages.indexOf(h)>-1?h:'home';
+ NEW.querySelectorAll('[data-page]').forEach(function(x){x.hidden=x.dataset.page!==pg});
+ NEW.querySelectorAll('.mn a').forEach(function(a){if(a.getAttribute('href')==='#'+pg)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});window.scrollTo(0,0)}
+window.addEventListener('hashchange',route);route();
+function skin(k){if(k)NEW.setAttribute('data-skin',k);else NEW.removeAttribute('data-skin');NEW.querySelectorAll('.sk button').forEach(function(b){b.setAttribute('aria-pressed',String((b.dataset.skin||'')===(k||'')))});try{localStorage.setItem('dk-skin',k||'')}catch(e){}}
+NEW.querySelectorAll('.sk button').forEach(function(b){b.addEventListener('click',function(){skin(b.dataset.skin)})});
+function view(v){NEW.hidden=v!=='new';OLD.hidden=v!=='old';document.querySelectorAll('.vs button').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.view===v))});try{localStorage.setItem('dk-view',v)}catch(e){}window.scrollTo(0,0)}
+document.querySelectorAll('.vs button').forEach(function(b){b.addEventListener('click',function(){view(b.dataset.view)})});
+try{var sk=localStorage.getItem('dk-skin');if(sk)skin(sk);var sv2=localStorage.getItem('dk-view');if(sv2==='new')view('new')}catch(e){}
+})();</script>
+<script>
+(function(){
+document.querySelectorAll("img[data-fb]").forEach(function(im){var bad=function(){im.hidden=true;var f=im.nextElementSibling;if(f&&f.hasAttribute("data-fbx"))f.hidden=false};im.addEventListener("error",bad);if(im.complete&&im.naturalWidth===0)bad()});
+var P=["main","doctors","info","growth","map"];
+function show(){
+var h=(location.hash||"").slice(1);if(P.indexOf(h)<0)h="main";
+P.forEach(function(p){document.getElementById("p-"+p).classList.toggle("on",p===h)});
+document.querySelectorAll("#v-old nav a").forEach(function(a){var on=a.dataset.p===h;a.classList.toggle("on",on);});
+window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",show);show();
+document.getElementById("top").addEventListener("click",function(e){e.preventDefault();window.scrollTo({top:0,behavior:"smooth"})});
+
+var d=new Date(),day=d.getDay(),min=d.getHours()*60+d.getMinutes();
+var HOL={"2026-12-25":"성탄절","2027-01-01":"새해 첫날","2027-02-06":"설 연휴","2027-02-07":"설날","2027-02-08":"설 연휴","2027-02-09":"설날 대체공휴일","2027-03-01":"삼일절","2027-05-01":"노동절","2027-05-03":"노동절 대체공휴일","2027-05-05":"어린이날","2027-05-13":"부처님오신날","2027-06-06":"현충일","2027-07-17":"제헌절","2027-07-19":"제헌절 대체공휴일","2027-08-15":"광복절","2027-08-16":"광복절 대체공휴일","2027-09-14":"추석 연휴","2027-09-15":"추석","2027-09-16":"추석 연휴","2027-10-03":"개천절","2027-10-04":"개천절 대체공휴일","2027-10-09":"한글날","2027-10-11":"한글날 대체공휴일","2027-12-25":"성탄절","2027-12-27":"성탄절 대체공휴일"};
+/* 임시 휴진: d=날짜, t=full(종일)·am(오전)·pm(오후). 여기에 한 줄씩 추가하세요. */
+var CLO=[{d:"2026-11-20",t:"full"}];
+var pad=function(n){return("0"+n).slice(-2)};
+var key=function(x){return x.getFullYear()+"-"+pad(x.getMonth()+1)+"-"+pad(x.getDate())};
+var ds=key(d),hol=HOL[ds],clo=CLO.filter(function(c){return c.d===ds})[0];
+var tl={full:"휴진",am:"오전 휴진",pm:"오후 휴진"};
+var names=["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+var sched={1:[[540,780],[840,1080]],2:[[540,780],[840,1080]],5:[[540,780],[840,1080]],3:[[840,1080]],6:[[480,720]]};
+document.getElementById("hours2").innerHTML=document.getElementById("hours").innerHTML;
+document.querySelectorAll("#hours .row,#hours2 .row").forEach(function(r){if(r.dataset.d.split(",").indexOf(String(hol?0:day))>-1)r.classList.add("today")});
+var sl=hol?null:(sched[day]||null);
+if(sl&&clo){sl=clo.t==="full"?null:sl.filter(function(x){return clo.t==="am"?x[0]>=720:x[0]<720});if(sl&&!sl.length)sl=null}
+var xnote=clo&&clo.t!=="full"&&sl?tl[clo.t]:"";
+var b=document.getElementById("badge"),s=document.getElementById("sub");
+document.getElementById("today").textContent="오늘은 "+names[day]+"이에요";
+if(!sl){b.textContent=hol?"공휴일 휴진":clo?"임시 휴진":"휴진";b.className="badge off";s.textContent=hol?"오늘은 "+hol+"(공휴일)이라 쉬어요.":clo?"오늘은 임시 휴진이에요.":"오늘은 쉬어요."}
+else{var open=sl.some(function(x){return min>=x[0]&&min<x[1]});b.textContent=open?"진료 중":"진료 시간 아님";b.className=open?"badge":"badge off";
+var f=function(m){return Math.floor(m/60)+":"+("0"+m%60).slice(-2)};
+s.textContent="오늘 진료 "+f(sl[0][0])+" ~ "+f(sl[sl.length-1][1])+(sl.length>1?" (점심 13:00 ~ 14:00)":"")+" · 예약 후 방문해 주세요."+(xnote?" ("+xnote+")":"")}
+document.querySelectorAll(".notice[data-end]").forEach(function(n){
+var e=new Date(n.dataset.end+"T23:59:59");
+if(d>e){n.classList.add("old");n.querySelector("small").textContent="지난 공지"}});
+var up=[],t0=new Date(d.getFullYear(),d.getMonth(),d.getDate()),i,x,k,c2;
+for(i=1;i<=45&&up.length<5;i++){x=new Date(t0.getFullYear(),t0.getMonth(),t0.getDate()+i);k=key(x);
+c2=CLO.filter(function(c){return c.d===k})[0];
+if(HOL[k]||c2)up.push((x.getMonth()+1)+"월 "+x.getDate()+"일("+names[x.getDay()].charAt(0)+") "+(HOL[k]?HOL[k]+" 휴진":tl[c2.t]))}
+if(up.length){var u=document.getElementById("upc");u.hidden=false;u.innerHTML="<b>다가오는 휴진</b> "+up.join(" · ")}
+})();
+</script>
+
+</body>
+</html>
